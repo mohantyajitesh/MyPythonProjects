@@ -1,5 +1,6 @@
 from api_client import fetch_api_data
 from data_transformer import convert_json_to_csv
+from data_transformer_pandas import convert_json_to_csv_pandas
 from sftp_client import upload_csv_to_sftp
 
 def main():
@@ -15,7 +16,7 @@ def main():
         json_data = fetch_api_data()
 
         # Convert JSON data to CSV
-        csv_data = convert_json_to_csv(json_data)
+        csv_data = convert_json_to_csv_pandas(json_data)
 
         # Upload CSV to SFTP
         upload_csv_to_sftp(csv_data, sftp_host, sftp_port, sftp_username, sftp_password, sftp_remote_path)
